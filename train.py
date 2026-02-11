@@ -38,7 +38,7 @@ if __name__ == '__main__':
     total_iters = 0                # トレーニングイテレーションの総数
     losses_record = []             # 損失を格納するための配列
 
-    for epoch in range(opt.epoch_count, opt.n_epochs + opt.n_epochs_decay + 1):    # エポックごとの外側のループ。モデルは <epoch_count>、<epoch_count>+<save_latest_freq> で保存されます
+    for epoch in range(opt.epoch_count, opt.n_epochs + opt.n_epochs_decay + 1):    # エポックごとの外側のループ。モデルは <epoch_count>、<epoch_count>+<save_latest_freq> で保存する
         epoch_start_time = time.time()  # エポック全体のタイマー
         iter_data_time = time.time()    # イテレーションごとのデータ読み込みタイマー
         epoch_iter = 0                  # 現在のエポック内のトレーニングイテレーションの数。各エポックごとにリセット
@@ -81,11 +81,11 @@ if __name__ == '__main__':
 
         print('End of epoch %d / %d \t Time Taken: %d sec' % (epoch, opt.n_epochs + opt.n_epochs_decay, time.time() - epoch_start_time))
 
-# 損失をグラフにプロット
-#x = list(range(len(losses_record)))
-#y = losses_record
-#plt.plot(x, y)
-#plt.title('Train Loss')
-#plt.xlabel('Iteration')
-#plt.ylabel('Loss')
-#plt.show()
+ # 損失をグラフにプロット
+x = list(range(len(losses_record)))
+y = losses_record
+plt.plot(x, y)
+plt.title('Train Loss')
+plt.xlabel('Iteration')
+plt.ylabel('Loss')
+plt.show()
